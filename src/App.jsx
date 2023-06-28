@@ -38,27 +38,19 @@ function App() {
     //     localStorage.setItem("myData", JSON.stringify(updatedData));
     // };
 
-    // Function for delete card from list
-
-    // const handleRemove = (id) => {
-    //     const newDataRemove = originalData.cars.filter(
-    //         (item) => item.id !== id
-    //     );
-    //     updateDataLS({ cars: newDataRemove });
-    // };
-
-    //////////////////////////////////
-
     return (
         <div className="App">
-            <h1>Cars Form</h1>
+            <h1>Cars Accounting</h1>
             {loadingOriginalData ? (
                 <AnimationLoadData />
             ) : (
                 <div className="cars-form__main-wrapper">
                     <div className="cars-form__main-list">
                         <CarsFormTitles />
-                        <CarsFormContentList originalData={originalData} />
+                        <CarsFormContentList
+                            originalData={originalData}
+                            setOriginalData={setOriginalData}
+                        />
                     </div>
                 </div>
             )}
