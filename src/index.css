@@ -215,7 +215,7 @@ h1 {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     opacity: 0;
-    animation: fadeInMainWrapper 2s ease-in-out forwards;
+    animation: fadeInMainWrapper 1s ease-in-out forwards;
 }
 .cars-form__main-list {
     padding-top: 0;
@@ -328,8 +328,14 @@ h1 {
     padding: 2px 0 2px 10px;
     outline: none;
 }
+.cars-form__new-car-right-side-inputs > .cars-form__new-car-input > select {
+    width: 100%;
+    padding: 2px 0 2px 6px;
+    height: 28px;
+}
 .cars-form__panel-search-input > input {
-    width: 200px;
+    height: 38px;
+    width: 280px;
 }
 .cars-form__new-car-right-side-inputs
     > .cars-form__new-car-input
@@ -340,15 +346,28 @@ h1 {
 .cars-form__panel-search-input > input::placeholder {
     color: black;
 }
-
-.valid {
-    background-color: rgb(14, 197, 57) !important;
-    color: whitesmoke !important;
+.cars-form__actions-delete-car {
+    background-color: rgb(191, 12, 12);
+    border: 1px solid rgb(191, 12, 12);
+    box-shadow: none;
+    transition: 0.5s ease-in-out;
 }
-.valid::placeholder {
-    color: whitesmoke !important;
+.cars-form__actions-delete-car:hover {
+    background-color: rgb(232, 23, 23);
+    border: 1px solid rgb(232, 23, 23);
+    transition: 0.5s;
 }
-
+.dropdown-item {
+    text-align: center;
+    width: 100%;
+}
+.dropdown-item:hover {
+    background-color: transparent;
+}
+.modal-footer,
+.modal-header {
+    border: none;
+}
 @media (max-width: 1200px) {
     h4 {
         font-size: 18px;

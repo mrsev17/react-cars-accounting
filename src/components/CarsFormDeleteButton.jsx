@@ -1,18 +1,12 @@
-
 import Button from "react-bootstrap/Button";
-
 
 const CarsFormDeleteButton = ({
     originalData,
     setOriginalData,
     car,
     setShow,
+    updateDataLS,
 }) => {
-    const updateDataLS = (updatedData) => {
-        setOriginalData(updatedData);
-        localStorage.setItem("myData", JSON.stringify(updatedData));
-    };
-
     const removeCar = (id) => {
         const newDataRemove = originalData.cars.filter(
             (item) => item.id !== id
@@ -24,6 +18,7 @@ const CarsFormDeleteButton = ({
     };
     return (
         <Button
+            className="cars-form__actions-delete-car"
             variant="primary"
             onClick={() => {
                 handleClose();

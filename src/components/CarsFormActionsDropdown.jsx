@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import CarsFormDeleteButton from "./CarsFormDeleteButton";
 
-const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
+const CarsFormActionsDropdown = ({ originalData, setOriginalData, car, updateDataLS }) => {
     const [show, setShow] = useState(false);
 
     // const updateDataLS = (updatedData) => {
@@ -22,7 +22,7 @@ const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
     const handleClose = () => {
         setShow(false);
     };
-    
+
     const handleShow = () => setShow(true);
 
     return (
@@ -32,7 +32,7 @@ const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
             <Dropdown.Menu>
                 {/* Action for edit car */}
 
-                <Dropdown.Item href="">Another action</Dropdown.Item>
+                <Dropdown.Item href="">Edit Car</Dropdown.Item>
 
                 {/* = = = = = = = = = = */}
 
@@ -40,7 +40,11 @@ const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
 
                 <Dropdown.Item href="">
                     <>
-                        <Button variant="primary" onClick={handleShow}>
+                        <Button
+                            className="cars-form__actions-delete-car"
+                            variant="primary"
+                            onClick={handleShow}
+                        >
                             Delete Car
                         </Button>
 
@@ -64,6 +68,7 @@ const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
                                     setOriginalData={setOriginalData}
                                     car={car}
                                     setShow={setShow}
+                                    updateDataLS={updateDataLS}
                                 />
                             </Modal.Footer>
                         </Modal>

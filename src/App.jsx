@@ -32,10 +32,10 @@ function App() {
         }
     };
 
-    // const updateDataLS = (updatedData) => {
-    //     setOriginalData(updatedData);
-    //     localStorage.setItem("myData", JSON.stringify(updatedData));
-    // };
+    const updateDataLS = (updatedData) => {
+        setOriginalData(updatedData);
+        localStorage.setItem("myData", JSON.stringify(updatedData));
+    };
 
     return (
         <div className="App">
@@ -48,6 +48,7 @@ function App() {
                         <CarsFormContentList
                             originalData={originalData}
                             setOriginalData={setOriginalData}
+                            updateDataLS={updateDataLS}
                         />
                     </div>
                 </div>
