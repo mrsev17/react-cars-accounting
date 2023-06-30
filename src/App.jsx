@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AnimationLoadData from "./components/AnimationLoadData";
-import CarsFormTitles from "./components/CarsFormTitles";
 import CarsFormContentList from "./components/CarsFormContentList";
 import "./App.css";
 
@@ -46,7 +45,6 @@ function App() {
             ) : (
                 <div className="cars-form__main-wrapper">
                     <div className="cars-form__main-list">
-                        <CarsFormTitles />
                         <CarsFormContentList
                             originalData={originalData}
                             setOriginalData={setOriginalData}

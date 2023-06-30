@@ -22,6 +22,7 @@ const CarsFormActionsDropdown = ({ originalData, setOriginalData, car }) => {
     const handleClose = () => {
         setShow(false);
     };
+    
     const handleShow = () => setShow(true);
 
     return (
