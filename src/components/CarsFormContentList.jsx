@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
 import CarsFormCurrentPageControl from "./CarsFormCurrentPageControl";
 import CarsFormCarItem from "./CarsFormCarItem";
@@ -17,9 +18,9 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     localStorage.setItem("currentPage", currentPage);
-    // }, [currentPage]);
+    useEffect(() => {
+        localStorage.setItem("currentPage", currentPage);
+    }, [currentPage]);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -51,16 +52,33 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
     // Inputs for new car //
 
     const [inputNewCarCompany, setInputNewCarCompany] = useState("");
+    const [validCompany, setValidCompany] = useState(true);
 
     const controlledInputNewCarCompany = (event) => {
-        setInputNewCarCompany(event.target.value);
+        const inputValue = event.target.value;
+        const filteredValue = inputValue.replace(/[^A-Za-z0-9]/g, "");
+        const truncatedValue = filteredValue.slice(0, 20);
+        setInputNewCarCompany(truncatedValue);
+        setValidCompany(truncatedValue.length > 2);
     };
+
+    const inputValidCompanyClass =
+        validCompany && inputNewCarCompany.length > 2 ? "valid" : "";
+
+    // = = = = = = = = = = = = //
 
     const [inputNewCarModel, setInputNewCarModel] = useState("");
+    const [validModel, setValidModel] = useState(true);
 
     const controlledInputNewCarModel = (event) => {
-        setInputNewCarModel(event.target.value);
+        const inputValue = event.target.value;
+        const filteredValue = inputValue.replace(/[^A-Za-z0-9]/g, "");
+        const truncatedValue = filteredValue.slice(0, 15);
+        setInputNewCarModel(truncatedValue);
+        setValidModel(truncatedValue.length > 2);
     };
+    const inputValidModelClass =
+        validModel && inputNewCarModel.length > 2 ? "valid" : "";
 
     // VIN Code //
 
@@ -96,12 +114,20 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
     // ======================= //
 
     const [inputNewCarColor, setInputNewCarColor] = useState("");
+    const [validColor, setValidColor] = useState(true);
 
     const controlledInputNewCarColor = (event) => {
-        setInputNewCarColor(event.target.value);
+        const inputValue = event.target.value;
+        const filteredValue = inputValue.replace(/[^A-Za-z0-9]/g, "");
+        const truncatedValue = filteredValue.slice(0, 15);
+        setInputNewCarColor(truncatedValue);
+        setValidColor(truncatedValue.length > 2);
     };
 
-    const [inputNewCarPrice, setInputNewCarPrice] = useState("0");
+    const inputValidColorClass =
+        validColor && inputNewCarColor.length > 2 ? "valid" : "";
+
+    const [inputNewCarPrice, setInputNewCarPrice] = useState("");
     const [validPrice, setValidPrice] = useState(true);
 
     const validatePrice = (value) => {
@@ -110,25 +136,48 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
 
     const controlledInputNewCarPrice = (event) => {
         const value = event.target.value;
-
         let formattedValue = value.replace(/[^0-9.]/g, "");
-
-        if (formattedValue.length > 1) {
-            formattedValue = formattedValue.replace(/\./g, "");
+        if (formattedValue.length === 1 && formattedValue[0] === ".") {
+            formattedValue = "";
         }
-
+        if (formattedValue.split(".").length > 2) {
+            formattedValue = formattedValue.slice(0, -1);
+        }
         setInputNewCarPrice(formattedValue);
-        setValidPrice(validatePrice(formattedValue));
+        setValidPrice(validatePrice(formattedValue.length > 0));
     };
 
     const inputValidPriceClass = validPrice ? "" : "valid";
 
     // Availability //
 
-    const [inputNewCarAvailability, setInputNewCarAvailability] = useState("");
+    const [inputNewCarAvailability, setInputNewCarAvailability] =
+        useState(false);
 
     const controlledInputNewCarAvailability = (event) => {
         setInputNewCarAvailability(event.target.value);
+    };
+
+    const updateDataLS = (updatedData) => {
+        setOriginalData(updatedData);
+        localStorage.setItem("myData", JSON.stringify(updatedData));
+    };
+
+    const addNewCar = () => {
+        const newCarObject = {
+            availability: inputNewCarAvailability ? "Available" : "Unavailable",
+            car: inputNewCarCompany,
+            car_color: inputNewCarColor,
+            car_model: inputNewCarModel,
+            car_model_year: inputNewCarYear,
+            car_vin: inputNewCarVIN,
+            id: uuidv4(),
+            price: `$${inputNewCarPrice}`,
+        };
+        console.log(originalData);
+        const addNewCarInData = [newCarObject, ...originalData.cars];
+        updateDataLS({ cars: addNewCarInData });
+        console.log(newCarObject);
     };
 
     return (
@@ -157,6 +206,9 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
                                     <div className="cars-form__new-car-left-side-inputs d-flex align-items-center flex-column gap-2">
                                         <div className="cars-form__new-car-input">
                                             <input
+                                                className={
+                                                    inputValidCompanyClass
+                                                }
                                                 type="text"
                                                 value={inputNewCarCompany}
                                                 onChange={
@@ -167,6 +219,7 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
                                         </div>
                                         <div className="cars-form__new-car-input">
                                             <input
+                                                className={inputValidModelClass}
                                                 type="text"
                                                 value={inputNewCarModel}
                                                 onChange={
@@ -201,6 +254,7 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
                                     <div className="cars-form__new-car-right-side-inputs d-flex align-items-center flex-column gap-2">
                                         <div className="cars-form__new-car-input">
                                             <input
+                                                className={inputValidColorClass}
                                                 type="text"
                                                 value={inputNewCarColor}
                                                 onChange={
@@ -228,12 +282,12 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
                                                     controlledInputNewCarAvailability
                                                 }
                                             >
-                                                <option value="true">
-                                                    Available
+                                                <option value={1}>
+                                                    Unavailable
                                                 </option>
 
-                                                <option value="false">
-                                                    Unavailable
+                                                <option value={0}>
+                                                    Available
                                                 </option>
                                             </select>
                                         </div>
@@ -247,7 +301,13 @@ const CarsFormContentList = ({ originalData, setOriginalData }) => {
                                 >
                                     Close
                                 </Button>
-                                <Button variant="primary" onClick={handleClose}>
+                                <Button
+                                    variant="primary"
+                                    onClick={() => {
+                                        handleClose();
+                                        addNewCar();
+                                    }}
+                                >
                                     Save Car
                                 </Button>
                             </Modal.Footer>

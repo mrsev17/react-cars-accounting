@@ -343,7 +343,10 @@ h1 {
 
 .valid {
     background-color: rgb(14, 197, 57) !important;
-    color: whitesmoke;
+    color: whitesmoke !important;
+}
+.valid::placeholder {
+    color: whitesmoke !important;
 }
 
 @media (max-width: 1200px) {
