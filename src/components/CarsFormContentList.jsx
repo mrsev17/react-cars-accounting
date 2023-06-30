@@ -136,7 +136,7 @@ const CarsFormContentList = ({
                 car_model_year: +inputNewCarYear,
                 car_vin: inputNewCarVIN,
                 availability: inputNewCarAvailability ? true : false,
-                price: `$${inputNewCarPrice}`,
+                price: `$${Math.round(inputNewCarPrice * 100) / 100}`,
             };
             const addNewCarInData = [newCarObject, ...originalData.cars];
             updateDataLS({ cars: addNewCarInData });

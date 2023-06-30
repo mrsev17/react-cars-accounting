@@ -346,6 +346,7 @@ h1 {
 .cars-form__panel-search-input > input::placeholder {
     color: black;
 }
+
 .cars-form__actions-delete-car {
     background-color: rgb(191, 12, 12);
     border: 1px solid rgb(191, 12, 12);
@@ -356,6 +357,9 @@ h1 {
     background-color: rgb(232, 23, 23);
     border: 1px solid rgb(232, 23, 23);
     transition: 0.5s;
+}
+.dropdown-item > button {
+    width: 100%;
 }
 .dropdown-item {
     text-align: center;

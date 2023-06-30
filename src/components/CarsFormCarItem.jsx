@@ -1,6 +1,11 @@
 import CarsFormActionsDropdown from "./CarsFormActionsDropdown";
 
-const CarsFormCarItem = ({ slicedData, originalData, setOriginalData, updateDataLS }) => {
+const CarsFormCarItem = ({
+    slicedData,
+    originalData,
+    setOriginalData,
+    updateDataLS,
+}) => {
     return (
         <>
             {slicedData.map((car) => {
