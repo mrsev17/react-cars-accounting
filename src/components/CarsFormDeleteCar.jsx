@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { Flip } from "react-toastify";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -8,11 +10,18 @@ const CarsFormDeleteCar = ({ originalData, updateDataLS, car }) => {
         setShowDelete(false);
     };
     const handleShowDelete = () => setShowDelete(true);
+    const showSuccesDeleteCarMessage = () => {
+        toast.success("Car removed", {
+            transition: Flip,
+            position: "top-right",
+        });
+    };
     const removeCar = (id) => {
         const newDataRemove = originalData.cars.filter(
             (item) => item.id !== id
         );
         updateDataLS({ cars: newDataRemove });
+        showSuccesDeleteCarMessage();
     };
     return (
         <>

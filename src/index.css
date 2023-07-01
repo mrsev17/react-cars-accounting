@@ -401,3 +401,76 @@ h1 {
         width: 15%;
     }
 }
+
+@media (max-width: 576px) {
+    .cars-form__content-card-wrapper > div:nth-child(2),
+    .cars-form__titles-list > div:nth-child(2) {
+        width: 12.5%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(3),
+    .cars-form__titles-list > div:nth-child(3) {
+        width: 25%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(4),
+    .cars-form__titles-list > div:nth-child(4) {
+        width: 8%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(6),
+    .cars-form__titles-list > div:nth-child(6) {
+        width: 11.5%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(8),
+    .cars-form__titles-list > div:nth-child(8) {
+        width: 11%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(3) > h6 {
+        font-size: 8px;
+    }
+    .cars-form__main-wrapper {
+        width: 99%;
+        padding: 0 10px 10px;
+    }
+    .cars-form__panel-search-input {
+        gap: 0 !important;
+    }
+    .cars-form__panel-add-car > button,
+    .cars-form__panel-search-input,
+    .cars-form__panel-add-car,
+    .cars0form__panel-search-input,
+    .cars-form__panel-search-input > input {
+        width: 100%;
+    }
+    .cars0form__panel-search-input > h5 {
+        display: none !important;
+    }
+
+    .cars-form__wrapper-panel-search-add-car {
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        order: 3;
+    }
+    .cars-form__titles-list > div > h4 {
+        font-size: 10px;
+    }
+    .cars-form__content-card-wrapper > div > div > button,
+    .cars-form__content-card-wrapper > div > h6 {
+        font-size: 9px;
+        padding: 0;
+    }
+    .cars-form__content-card-wrapper > div > div > button {
+        margin-bottom: 5px;
+    }
+    .cars-form__change-page-btns {
+        margin-left: 6px;
+        width: 60%;
+    }
+    .cars-form__show-current-page {
+        width: 40%;
+    }
+    .cars-form__main-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
