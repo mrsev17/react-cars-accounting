@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { Flip } from "react-toastify";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -78,6 +80,13 @@ const CarsFormNewCar = ({ originalData, updateDataLS }) => {
         setInputNewCarAvailability(event.target.value);
     };
 
+    const showSuccesCreateNewCarMessage = () => {
+        toast.success("Added a new car", {
+            transition: Flip,
+            position: "top-right",
+        });
+    };
+
     const addNewCar = () => {
         if (
             inputNewCarCompany.length > 0 &&
@@ -100,6 +109,7 @@ const CarsFormNewCar = ({ originalData, updateDataLS }) => {
             const addNewCarInData = [newCarObject, ...originalData.cars];
             updateDataLS({ cars: addNewCarInData });
             cleanInputsForNewCar();
+            showSuccesCreateNewCarMessage();
         }
     };
 

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -83,6 +86,13 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
         setInputNewCarAvailabilityEdit(event.target.value);
     };
 
+    const showSuccesEditMessage = () => {
+        toast.success("Changes Saved", {
+            transition: Flip,
+            position: "top-right",
+        });
+    };
+
     const editCar = () => {
         if (
             inputNewCarColorEdit.length > 0 &&
@@ -108,6 +118,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                 ...originalData.cars.slice(indexEditedCar + 1),
             ];
             updateDataLS({ cars: updatedArrayAfterEdit });
+            showSuccesEditMessage();
         }
     };
 
@@ -126,6 +137,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                         <div className="cars-form__new-car-left-side-inputs d-flex align-items-center flex-column gap-2">
                             <div className="cars-form__new-car-input">
                                 <input
+                                    className="disabled-input"
                                     type="text"
                                     value={inputNewCarCompanyEdit}
                                     onChange={controlledInputNewCarCompanyEdit}
@@ -135,6 +147,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                             </div>
                             <div className="cars-form__new-car-input">
                                 <input
+                                    className="disabled-input"
                                     type="text"
                                     value={inputNewCarModelEdit}
                                     onChange={controlledInputNewCarModelEdit}
@@ -144,6 +157,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                             </div>
                             <div className="cars-form__new-car-input">
                                 <input
+                                    className="disabled-input"
                                     type="text"
                                     value={inputNewCarVINEdit}
                                     onChange={controlledInputNewCarVINEdit}
@@ -153,6 +167,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                             </div>
                             <div className="cars-form__new-car-input">
                                 <input
+                                    className="disabled-input"
                                     type="text"
                                     value={inputNewCarYearEdit}
                                     onChange={controlledInputNewCarYearEdit}

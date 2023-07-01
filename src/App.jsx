@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AnimationLoadData from "./components/AnimationLoadData";
 import CarsFormContentList from "./components/CarsFormContentList";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 
 function App() {
@@ -43,15 +44,22 @@ function App() {
             {loadingOriginalData ? (
                 <AnimationLoadData />
             ) : (
-                <div className="cars-form__main-wrapper">
-                    <div className="cars-form__main-list">
-                        <CarsFormContentList
-                            originalData={originalData}
-                            setOriginalData={setOriginalData}
-                            updateDataLS={updateDataLS}
-                        />
+                <>
+                    <div className="cars-form__main-wrapper">
+                        <div className="cars-form__main-list">
+                            <CarsFormContentList
+                                originalData={originalData}
+                                setOriginalData={setOriginalData}
+                                updateDataLS={updateDataLS}
+                            />
+                        </div>
                     </div>
-                </div>
+                    <ToastContainer
+                        theme="dark"
+                        autoClose={1000}
+                        hideProgressBar
+                    />
+                </>
             )}
         </div>
     );
