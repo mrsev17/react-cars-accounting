@@ -23,9 +23,7 @@ const CarsFormCurrentPageControl = ({
                 </button>
             </div>
             <div className="cars-form__show-current-page">
-                <h6>
-                    Current Page: {currentPage}
-                </h6>
+                <h6>Current Page: {currentPage}</h6>
             </div>
         </div>
     );
