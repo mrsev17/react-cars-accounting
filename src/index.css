@@ -252,6 +252,7 @@ h1 {
     border-right: 1px solid black;
 }
 .cars-form__content-list {
+    height: 620px;
     border: 1px solid black;
 }
 .cars-form__car-list-vin > h6 {
@@ -290,8 +291,8 @@ h1 {
 .cars-form__show-current-page {
     width: 16%;
 }
-.cars-form__change-page-btns {
-    width: 28%;
+.cars-form__change-page-btns-and-counter-pages {
+    margin-bottom: 6px;
 }
 .cars-form__show-current-page > h6 {
     font-size: 16px;
@@ -472,5 +473,8 @@ h1 {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    .cars-form__content-list {
+        height: 440px;
     }
 }

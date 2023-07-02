@@ -5,6 +5,8 @@ const CarsFormCarItem = ({
     originalData,
     setOriginalData,
     updateDataLS,
+    setCurrentPage,
+    totalPages
 }) => {
     return (
         <>
@@ -33,7 +35,7 @@ const CarsFormCarItem = ({
                             <h6>{car.price}</h6>
                         </div>
                         <div className="cars-form__car-list-availability d-flex align-items-center justify-content-center">
-                            <h6>
+                            <h6 className="cars-form__availability-car-check">
                                 {car.availability ? `Available` : `Unavailable`}
                             </h6>
                         </div>
@@ -43,6 +45,9 @@ const CarsFormCarItem = ({
                                 setOriginalData={setOriginalData}
                                 car={car}
                                 updateDataLS={updateDataLS}
+                                slicedData={slicedData}
+                                setCurrentPage={setCurrentPage}
+                                totalPages={totalPages}
                             />
                         </div>
                     </div>

@@ -4,7 +4,14 @@ import { Flip } from "react-toastify";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-const CarsFormDeleteCar = ({ originalData, updateDataLS, car }) => {
+const CarsFormDeleteCar = ({
+    originalData,
+    updateDataLS,
+    car,
+    slicedData,
+    setCurrentPage,
+    totalPages,
+}) => {
     const [showDelete, setShowDelete] = useState(false);
     const handleCloseDelete = () => {
         setShowDelete(false);
@@ -23,6 +30,11 @@ const CarsFormDeleteCar = ({ originalData, updateDataLS, car }) => {
         updateDataLS({ cars: newDataRemove });
         showSuccesDeleteCarMessage();
     };
+
+    const checkEmptyPage = () => {
+        if (slicedData.length === 1) setCurrentPage(totalPages - 1);
+    };
+
     return (
         <>
             <Button
@@ -48,6 +60,7 @@ const CarsFormDeleteCar = ({ originalData, updateDataLS, car }) => {
                         onClick={() => {
                             handleCloseDelete();
                             removeCar(car.id);
+                            checkEmptyPage();
                         }}
                     >
                         Delete

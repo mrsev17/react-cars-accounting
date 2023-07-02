@@ -23,7 +23,7 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
     const [inputNewCarPriceEdit, setInputNewCarPriceEdit] = useState(car.price);
 
     const [inputNewCarAvailabilityEdit, setInputNewCarAvailabilityEdit] =
-        useState(car.availability);
+        useState(Boolean(car.availability));
 
     const handleCloseEdit = () => {
         setShowEdit(false);
@@ -82,8 +82,9 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
         setInputNewCarPriceEdit(formattedValue);
     };
 
-    const controlledInputNewCarAvailabilityEdit = (event) => {
-        setInputNewCarAvailabilityEdit(event.target.value);
+    const controlledInputNewCarAvailabilityEdit = () => {
+        const value = !inputNewCarAvailabilityEdit;
+        setInputNewCarAvailabilityEdit(value);
     };
 
     const showSuccesEditMessage = () => {
@@ -105,9 +106,15 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                 car_color: inputNewCarColorEdit,
                 car_model_year: +inputNewCarYearEdit,
                 car_vin: car.car_vin,
-                availability:
-                    inputNewCarAvailabilityEdit === "true" ? true : false,
-                price: `$${Math.round(inputNewCarPriceEdit * 100) / 100}`,
+                availability: inputNewCarAvailabilityEdit ? true : false,
+                price:
+                    inputNewCarPriceEdit.charAt(0) === "$"
+                        ? `$${
+                              Math.round(
+                                  +inputNewCarPriceEdit.substring(1) * 100
+                              ) / 100
+                          }`
+                        : `$${Math.round(+inputNewCarPriceEdit * 100) / 100}`,
             };
             const indexEditedCar = originalData.cars.findIndex(
                 (editedCar) => editedCar.id === car.id
@@ -127,7 +134,6 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
             <Button variant="primary" onClick={handleShowEdit}>
                 Edit Car
             </Button>
-
             <Modal show={showEdit} onHide={handleCloseEdit}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Car</Modal.Title>
@@ -195,14 +201,14 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                             </div>
                             <div className="cars-form__new-car-input">
                                 <select
-                                    value={inputNewCarAvailabilityEdit}
-                                    onChange={(e) =>
-                                        controlledInputNewCarAvailabilityEdit(e)
+                                    value={inputNewCarAvailabilityEdit.toString()}
+                                    onChange={
+                                        controlledInputNewCarAvailabilityEdit
                                     }
                                 >
-                                    <option value={false}>Unavailable</option>
+                                    <option value="false">Unavailable</option>
 
-                                    <option value={true}>Available</option>
+                                    <option value="true">Available</option>
                                 </select>
                             </div>
                         </div>

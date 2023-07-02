@@ -2,7 +2,14 @@ import Dropdown from "react-bootstrap/Dropdown";
 import CarsFormEditCar from "./CarsFormEditCar";
 import CarsFormDeleteCar from "./CarsFormDeleteCar";
 
-const CarsFormActionsDropdown = ({ originalData, car, updateDataLS }) => {
+const CarsFormActionsDropdown = ({
+    originalData,
+    car,
+    updateDataLS,
+    slicedData,
+    setCurrentPage,
+    totalPages,
+}) => {
     return (
         <Dropdown>
             <Dropdown.Toggle variant="success">Actions</Dropdown.Toggle>
@@ -16,9 +23,12 @@ const CarsFormActionsDropdown = ({ originalData, car, updateDataLS }) => {
                 </Dropdown.Item>
                 <Dropdown.Item href="">
                     <CarsFormDeleteCar
+                        slicedData={slicedData}
                         originalData={originalData}
                         updateDataLS={updateDataLS}
                         car={car}
+                        setCurrentPage={setCurrentPage}
+                        totalPages={totalPages}
                     />
                 </Dropdown.Item>
             </Dropdown.Menu>
