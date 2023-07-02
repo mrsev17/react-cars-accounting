@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
-import { Flip } from "react-toastify";
+import { useState, lazy, Suspense } from "react";
+import { toast, Flip } from "react-toastify";
+import { Spinner, Button, Modal } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+const CarsFormEditCarInputsWrapper = lazy(() =>
+    import("./CarsFormEditCarInputsWrapper")
+);
 
 const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
     const [showEdit, setShowEdit] = useState(false);
@@ -135,11 +136,50 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                 Edit Car
             </Button>
             <Modal show={showEdit} onHide={handleCloseEdit}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit Car</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="cars-form__new-car-inputs-wrapper d-flex justify-content-around">
+                <Suspense
+                    fallback={
+                        <div className="spinner-lazy-load d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
+                        </div>
+                    }
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Edit Car</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <CarsFormEditCarInputsWrapper
+                            inputNewCarCompanyEdit={inputNewCarCompanyEdit}
+                            controlledInputNewCarCompanyEdit={
+                                controlledInputNewCarCompanyEdit
+                            }
+                            inputNewCarModelEdit={inputNewCarModelEdit}
+                            controlledInputNewCarModelEdit={
+                                controlledInputNewCarModelEdit
+                            }
+                            inputNewCarVINEdit={inputNewCarVINEdit}
+                            controlledInputNewCarVINEdit={
+                                controlledInputNewCarVINEdit
+                            }
+                            inputNewCarYearEdit={inputNewCarYearEdit}
+                            controlledInputNewCarYearEdit={
+                                controlledInputNewCarYearEdit
+                            }
+                            inputNewCarColorEdit={inputNewCarColorEdit}
+                            controlledInputNewCarColorEdit={
+                                controlledInputNewCarColorEdit
+                            }
+                            inputNewCarPriceEdit={inputNewCarPriceEdit}
+                            controlledInputNewCarPriceEdit={
+                                controlledInputNewCarPriceEdit
+                            }
+                            inputNewCarAvailabilityEdit={
+                                inputNewCarAvailabilityEdit
+                            }
+                            controlledInputNewCarAvailabilityEdit={
+                                controlledInputNewCarAvailabilityEdit
+                            }
+                        />
+                        {/* <div className="cars-form__new-car-inputs-wrapper d-flex justify-content-around">
                         <div className="cars-form__new-car-left-side-inputs d-flex align-items-center flex-column gap-2">
                             <div className="cars-form__new-car-input">
                                 <input
@@ -212,22 +252,23 @@ const CarsFormEditCar = ({ originalData, car, updateDataLS }) => {
                                 </select>
                             </div>
                         </div>
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseEdit}>
-                        Close
-                    </Button>
-                    <Button
-                        variant="primary"
-                        onClick={() => {
-                            handleCloseEdit();
-                            editCar();
-                        }}
-                    >
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
+                    </div> */}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseEdit}>
+                            Close
+                        </Button>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                handleCloseEdit();
+                                editCar();
+                            }}
+                        >
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Suspense>
             </Modal>
         </>
     );

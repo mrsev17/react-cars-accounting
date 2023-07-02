@@ -6,7 +6,7 @@ const CarsFormCarItem = ({
     setOriginalData,
     updateDataLS,
     setCurrentPage,
-    totalPages
+    totalPages,
 }) => {
     return (
         <>

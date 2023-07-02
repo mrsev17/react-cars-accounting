@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import { Flip } from "react-toastify";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { useState, lazy, Suspense } from "react";
+import { toast, Flip } from "react-toastify";
+import { Button, Modal, Spinner } from "react-bootstrap";
+const CarsFormNewCarInputsWrapper = lazy(() =>
+    import("./CarsFormNewCarInputsWrapper")
+);
 
 const CarsFormNewCar = ({ originalData, updateDataLS }) => {
     const [showNewCar, setShowNewCar] = useState(false);
@@ -118,91 +119,62 @@ const CarsFormNewCar = ({ originalData, updateDataLS }) => {
             <Button variant="primary" onClick={handleShowNewCar}>
                 Add Car +
             </Button>
-
             <Modal show={showNewCar} onHide={handleCloseNewCar}>
-                <Modal.Header closeButton>
-                    <Modal.Title>New Car</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="cars-form__new-car-inputs-wrapper d-flex justify-content-around">
-                        <div className="cars-form__new-car-left-side-inputs d-flex align-items-center flex-column gap-2">
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarCompany}
-                                    onChange={controlledInputNewCarCompany}
-                                    placeholder="Company"
-                                />
-                            </div>
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarModel}
-                                    onChange={controlledInputNewCarModel}
-                                    placeholder="Model"
-                                />
-                            </div>
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarVIN}
-                                    onChange={controlledInputNewCarVIN}
-                                    placeholder="VIN"
-                                />
-                            </div>
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarYear}
-                                    onChange={controlledInputNewCarYear}
-                                    placeholder="Year"
-                                />
-                            </div>
+                <Suspense
+                    fallback={
+                        <div className="spinner-lazy-load d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
                         </div>
-                        <div className="cars-form__new-car-right-side-inputs d-flex align-items-center flex-column gap-2">
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarColor}
-                                    onChange={controlledInputNewCarColor}
-                                    placeholder="Color"
-                                />
-                            </div>
-                            <div className="cars-form__new-car-input">
-                                <input
-                                    type="text"
-                                    value={inputNewCarPrice}
-                                    onChange={controlledInputNewCarPrice}
-                                    placeholder="Price"
-                                />
-                            </div>
-                            <div className="cars-form__new-car-input">
-                                <select
-                                    value={inputNewCarAvailability}
-                                    onChange={controlledInputNewCarAvailability}
-                                >
-                                    <option value={1}>Unavailable</option>
-
-                                    <option value={0}>Available</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseNewCar}>
-                        Close
-                    </Button>
-                    <Button
-                        variant="primary"
-                        onClick={() => {
-                            handleCloseNewCar();
-                            addNewCar();
-                        }}
-                    >
-                        Save Car
-                    </Button>
-                </Modal.Footer>
+                    }
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>New Car</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <CarsFormNewCarInputsWrapper
+                            inputNewCarCompany={inputNewCarCompany}
+                            controlledInputNewCarCompany={
+                                controlledInputNewCarCompany
+                            }
+                            inputNewCarModel={inputNewCarModel}
+                            controlledInputNewCarModel={
+                                controlledInputNewCarModel
+                            }
+                            inputNewCarVIN={inputNewCarVIN}
+                            controlledInputNewCarVIN={controlledInputNewCarVIN}
+                            inputNewCarYear={inputNewCarYear}
+                            controlledInputNewCarYear={
+                                controlledInputNewCarYear
+                            }
+                            inputNewCarColor={inputNewCarColor}
+                            controlledInputNewCarColor={
+                                controlledInputNewCarColor
+                            }
+                            inputNewCarPrice={inputNewCarPrice}
+                            controlledInputNewCarPrice={
+                                controlledInputNewCarPrice
+                            }
+                            inputNewCarAvailability={inputNewCarAvailability}
+                            controlledInputNewCarAvailability={
+                                controlledInputNewCarAvailability
+                            }
+                        />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseNewCar}>
+                            Close
+                        </Button>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                handleCloseNewCar();
+                                addNewCar();
+                            }}
+                        >
+                            Save Car
+                        </Button>
+                    </Modal.Footer>
+                </Suspense>
             </Modal>
         </div>
     );

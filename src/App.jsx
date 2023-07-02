@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import AnimationLoadData from "./components/AnimationLoadData";
 import CarsFormContentList from "./components/CarsFormContentList";
 import { ToastContainer } from "react-toastify";
-import "./App.css";
 
 function App() {
     const [loadingOriginalData, setLoadingOriginalData] = useState(true);

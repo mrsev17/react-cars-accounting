@@ -104,6 +104,9 @@ h1 {
     animation: fadeInMainTitle 2s ease-in-out forwards;
 }
 
+.App {
+    text-align: center;
+}
 @keyframes fadeInMainTitle {
     0% {
         opacity: 0;
@@ -376,6 +379,14 @@ h1 {
 .modal-header {
     border: none;
 }
+.spinner-lazy-load {
+    width: 500px;
+    height: 308px;
+}
+.spinner-dropdown-load {
+    width: 160px;
+    height: 110px;
+}
 @media (max-width: 1200px) {
     h4 {
         font-size: 18px;
@@ -404,32 +415,49 @@ h1 {
 }
 
 @media (max-width: 576px) {
+    h1 {
+        margin: 15px 0 15px 0;
+    }
+    .cars-form__titles-list {
+        margin: 10px 0 5px 0;
+    }
+    .cars-form__wrapper-panel-search-add-car {
+        padding-top: 10px;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(1),
+    .cars-form__titles-list > div:nth-child(1) {
+        width: 13%;
+    }
     .cars-form__content-card-wrapper > div:nth-child(2),
     .cars-form__titles-list > div:nth-child(2) {
-        width: 12.5%;
+        width: 11.5%;
     }
     .cars-form__content-card-wrapper > div:nth-child(3),
     .cars-form__titles-list > div:nth-child(3) {
-        width: 25%;
+        width: 21%;
     }
     .cars-form__content-card-wrapper > div:nth-child(4),
     .cars-form__titles-list > div:nth-child(4) {
-        width: 8%;
+        width: 12.5%;
     }
     .cars-form__content-card-wrapper > div:nth-child(6),
     .cars-form__titles-list > div:nth-child(6) {
         width: 11.5%;
+    }
+    .cars-form__content-card-wrapper > div:nth-child(7),
+    .cars-form__titles-list > div:nth-child(7) {
+        width: 13.5%;
     }
     .cars-form__content-card-wrapper > div:nth-child(8),
     .cars-form__titles-list > div:nth-child(8) {
         width: 11%;
     }
     .cars-form__content-card-wrapper > div:nth-child(3) > h6 {
-        font-size: 8px;
+        font-size: 7px;
     }
     .cars-form__main-wrapper {
-        width: 99%;
-        padding: 0 10px 10px;
+        width: 98.75%;
+        padding: 0 5px 5px;
     }
     .cars-form__panel-search-input {
         gap: 0 !important;
@@ -456,7 +484,7 @@ h1 {
     }
     .cars-form__content-card-wrapper > div > div > button,
     .cars-form__content-card-wrapper > div > h6 {
-        font-size: 9px;
+        font-size: 8px;
         padding: 0;
     }
     .cars-form__content-card-wrapper > div > div > button {

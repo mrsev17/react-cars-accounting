@@ -1,6 +1,7 @@
-import Dropdown from "react-bootstrap/Dropdown";
-import CarsFormEditCar from "./CarsFormEditCar";
-import CarsFormDeleteCar from "./CarsFormDeleteCar";
+import React, { lazy, Suspense } from "react";
+import { Dropdown, Spinner } from "react-bootstrap";
+const CarsFormEditCar = lazy(() => import("./CarsFormEditCar"));
+const CarsFormDeleteCar = lazy(() => import("./CarsFormDeleteCar"));
 
 const CarsFormActionsDropdown = ({
     originalData,
@@ -14,23 +15,31 @@ const CarsFormActionsDropdown = ({
         <Dropdown>
             <Dropdown.Toggle variant="success">Actions</Dropdown.Toggle>
             <Dropdown.Menu>
-                <Dropdown.Item href="">
-                    <CarsFormEditCar
-                        originalData={originalData}
-                        updateDataLS={updateDataLS}
-                        car={car}
-                    />
-                </Dropdown.Item>
-                <Dropdown.Item href="">
-                    <CarsFormDeleteCar
-                        slicedData={slicedData}
-                        originalData={originalData}
-                        updateDataLS={updateDataLS}
-                        car={car}
-                        setCurrentPage={setCurrentPage}
-                        totalPages={totalPages}
-                    />
-                </Dropdown.Item>
+                <Suspense
+                    fallback={
+                        <div className="spinner-dropdown-load d-flex justify-content-center align-items-center">
+                            <Spinner animation="border" />
+                        </div>
+                    }
+                >
+                    <Dropdown.Item href="">
+                        <CarsFormEditCar
+                            originalData={originalData}
+                            updateDataLS={updateDataLS}
+                            car={car}
+                        />
+                    </Dropdown.Item>
+                    <Dropdown.Item href="">
+                        <CarsFormDeleteCar
+                            slicedData={slicedData}
+                            originalData={originalData}
+                            updateDataLS={updateDataLS}
+                            car={car}
+                            setCurrentPage={setCurrentPage}
+                            totalPages={totalPages}
+                        />
+                    </Dropdown.Item>
+                </Suspense>
             </Dropdown.Menu>
         </Dropdown>
     );
