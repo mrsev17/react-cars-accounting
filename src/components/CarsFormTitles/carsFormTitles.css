@@ -1,11 +1,8 @@
 .cars-form__titles-list {
     margin: 10px 0 10px 0;
     border: 1px solid black;
+    border-radius: 4px;
 }
-
-/* .cars-form__titles-list > div > div {
-    width: 12.5%;
-} */
 
 .cars-form__titles-list > div:nth-child(1) {
     width: 12.5%;

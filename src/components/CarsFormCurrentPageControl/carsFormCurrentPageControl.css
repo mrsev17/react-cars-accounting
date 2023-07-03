@@ -18,6 +18,9 @@
     color: white;
     transition: 0.5s;
 }
+.page-link {
+    background-color: #faf9f6;
+}
 @media (max-width: 576px) {
     .cars-form__change-page-btns {
         margin-left: 6px;

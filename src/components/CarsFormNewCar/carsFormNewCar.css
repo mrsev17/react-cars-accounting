@@ -6,6 +6,7 @@
     width: 500px;
     height: 308px;
 }
+
 @media (max-width: 576px) {
     .cars-form__panel-add-car > button,
     .cars-form__panel-add-car {

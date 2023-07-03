@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState, lazy, Suspense } from "react";
 import { toast, Flip } from "react-toastify";
 import { Button, Modal, Spinner } from "react-bootstrap";
+import "./carsFormNewCar.css";
 const CarsFormNewCarInputsWrapper = lazy(() =>
     import("../CarsFormNewCarInputsWrapper")
 );

@@ -15,6 +15,7 @@
     color: rgb(112, 111, 111);
 }
 .cars-form__content-list {
+    border-radius: 4px;
     height: 620px;
     border: 1px solid black;
 }
