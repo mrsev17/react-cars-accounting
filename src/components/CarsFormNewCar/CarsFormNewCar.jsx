@@ -3,7 +3,7 @@ import { useState, lazy, Suspense } from "react";
 import { toast, Flip } from "react-toastify";
 import { Button, Modal, Spinner } from "react-bootstrap";
 const CarsFormNewCarInputsWrapper = lazy(() =>
-    import("./CarsFormNewCarInputsWrapper")
+    import("../CarsFormNewCarInputsWrapper")
 );
 
 const CarsFormNewCar = ({ originalData, updateDataLS }) => {

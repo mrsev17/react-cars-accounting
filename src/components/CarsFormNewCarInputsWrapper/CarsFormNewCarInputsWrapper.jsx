@@ -1,3 +1,5 @@
+import "./carsFormNewCarInputsWrapper.css";
+
 const CarsFormNewCarInputsWrapper = ({
     inputNewCarCompany,
     controlledInputNewCarCompany,

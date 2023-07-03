@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast, Flip } from "react-toastify";
 import { Button, Modal } from "react-bootstrap";
+import "./carsFormDeleteCar.css";
 
 const CarsFormDeleteCar = ({
     originalData,

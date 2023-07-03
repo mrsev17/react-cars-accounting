@@ -1,0 +1,103 @@
+.cars-form__titles-list {
+    margin: 10px 0 10px 0;
+    border: 1px solid black;
+}
+
+/* .cars-form__titles-list > div > div {
+    width: 12.5%;
+} */
+
+.cars-form__titles-list > div:nth-child(1) {
+    width: 12.5%;
+}
+.cars-form__titles-list > div:nth-child(2) {
+    width: 12.5%;
+}
+.cars-form__titles-list > div:nth-child(3) {
+    width: 18%;
+}
+.cars-form__titles-list > div:nth-child(4) {
+    width: 12.5%;
+}
+.cars-form__titles-list > div:nth-child(5) {
+    width: 8%;
+}
+.cars-form__titles-list > div:nth-child(6) {
+    width: 12.5%;
+}
+.cars-form__titles-list > div:nth-child(7) {
+    width: 12.5%;
+}
+.cars-form__titles-list > div:nth-child(8) {
+    width: 12.5%;
+}
+
+.cars-form__titles-list > div:not(:last-child) {
+    border-right: 1px solid black;
+}
+@media (max-width: 1200px) {
+    .cars-form__titles-list > div:nth-child(6) {
+        width: 8%;
+    }
+    .cars-form__titles-list > div:nth-child(4) {
+        width: 10%;
+    }
+    .cars-form__titles-list > div:nth-child(3) {
+        width: 22.5%;
+    }
+    .cars-form__titles-list > div:nth-child(2) {
+        width: 15%;
+    }
+}
+@media (max-width: 768px) {
+    .cars-form__titles-list > div:nth-child(1) {
+        width: 12%;
+    }
+    .cars-form__titles-list > div:nth-child(2) {
+        width: 10.5%;
+    }
+    .cars-form__titles-list > div:nth-child(3) {
+        width: 22%;
+    }
+    .cars-form__titles-list > div:nth-child(4) {
+        width: 12.5%;
+    }
+    .cars-form__titles-list > div:nth-child(6) {
+        width: 11.5%;
+    }
+    .cars-form__titles-list > div:nth-child(7) {
+        width: 13.5%;
+    }
+    .cars-form__titles-list > div:nth-child(8) {
+        width: 12%;
+    }
+}
+@media (max-width: 576px) {
+    .cars-form__titles-list {
+        margin: 5px 0 5px 0;
+    }
+    .cars-form__titles-list > div:nth-child(1) {
+        width: 13%;
+    }
+    .cars-form__titles-list > div:nth-child(2) {
+        width: 11.5%;
+    }
+    .cars-form__titles-list > div:nth-child(3) {
+        width: 21%;
+    }
+    .cars-form__titles-list > div:nth-child(4) {
+        width: 12.5%;
+    }
+    .cars-form__titles-list > div:nth-child(6) {
+        width: 11.5%;
+    }
+    .cars-form__titles-list > div:nth-child(7) {
+        width: 13.5%;
+    }
+    .cars-form__titles-list > div:nth-child(8) {
+        width: 11%;
+    }
+    .cars-form__titles-list > div > h4 {
+        font-size: 10px;
+    }
+}

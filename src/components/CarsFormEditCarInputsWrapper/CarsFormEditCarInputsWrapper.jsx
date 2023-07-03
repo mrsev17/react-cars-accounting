@@ -1,3 +1,4 @@
+import "./carsFormEditCarInputsWrapper.css"
 const CarsFormEditCarInputsWrapper = ({
     inputNewCarCompanyEdit,
     controlledInputNewCarCompanyEdit,
@@ -15,9 +16,9 @@ const CarsFormEditCarInputsWrapper = ({
     controlledInputNewCarAvailabilityEdit,
 }) => {
     return (
-        <div className="cars-form__new-car-inputs-wrapper d-flex justify-content-around">
-            <div className="cars-form__new-car-left-side-inputs d-flex align-items-center flex-column gap-2">
-                <div className="cars-form__new-car-input">
+        <div className="cars-form__edit-car-inputs-wrapper d-flex justify-content-around">
+            <div className="cars-form__edit-car-left-side-inputs d-flex align-items-center flex-column gap-2">
+                <div className="cars-form__edit-car-input">
                     <input
                         className="disabled-input"
                         type="text"
@@ -27,7 +28,7 @@ const CarsFormEditCarInputsWrapper = ({
                         disabled={true}
                     />
                 </div>
-                <div className="cars-form__new-car-input">
+                <div className="cars-form__edit-car-input">
                     <input
                         className="disabled-input"
                         type="text"
@@ -37,7 +38,7 @@ const CarsFormEditCarInputsWrapper = ({
                         disabled={true}
                     />
                 </div>
-                <div className="cars-form__new-car-input">
+                <div className="cars-form__edit-car-input">
                     <input
                         className="disabled-input"
                         type="text"
@@ -47,7 +48,7 @@ const CarsFormEditCarInputsWrapper = ({
                         disabled={true}
                     />
                 </div>
-                <div className="cars-form__new-car-input">
+                <div className="cars-form__edit-car-input">
                     <input
                         className="disabled-input"
                         type="text"
@@ -58,8 +59,8 @@ const CarsFormEditCarInputsWrapper = ({
                     />
                 </div>
             </div>
-            <div className="cars-form__new-car-right-side-inputs d-flex align-items-center flex-column gap-2">
-                <div className="cars-form__new-car-input">
+            <div className="cars-form__edit-car-right-side-inputs d-flex align-items-center flex-column gap-2">
+                <div className="cars-form__edit-car-input">
                     <input
                         type="text"
                         value={inputNewCarColorEdit}
@@ -67,7 +68,7 @@ const CarsFormEditCarInputsWrapper = ({
                         placeholder="Color"
                     />
                 </div>
-                <div className="cars-form__new-car-input">
+                <div className="cars-form__edit-car-input">
                     <input
                         type="text"
                         value={inputNewCarPriceEdit}
@@ -75,7 +76,7 @@ const CarsFormEditCarInputsWrapper = ({
                         placeholder="Price"
                     />
                 </div>
-                <div className="cars-form__new-car-input">
+                <div className="cars-form__edit-car-input">
                     <select
                         value={inputNewCarAvailabilityEdit.toString()}
                         onChange={controlledInputNewCarAvailabilityEdit}

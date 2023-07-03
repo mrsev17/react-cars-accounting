@@ -1,0 +1,26 @@
+.cars-form__change-page-btns-and-counter-pages {
+    margin-bottom: 6px;
+}
+.cars-form__change-page-btns {
+    padding: 6px 0 6px 0;
+}
+.cars-form__change-page-btns > button {
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 110px;
+    height: 24px;
+    transition: ease-in-out 0.5s;
+    font-size: 14px;
+}
+.cars-form__change-page-btns > button:hover {
+    border: 1px solid rgb(25, 128, 191);
+    background-color: rgb(25, 128, 191);
+    color: white;
+    transition: 0.5s;
+}
+@media (max-width: 576px) {
+    .cars-form__change-page-btns {
+        margin-left: 6px;
+        width: 60%;
+    }
+}

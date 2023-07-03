@@ -1,8 +1,9 @@
 import { useState } from "react";
-import CarsFormCurrentPageControl from "./CarsFormCurrentPageControl";
-import CarsFormCarItem from "./CarsFormCarItem";
-import CarsFormTitles from "./CarsFormTitles";
-import CarsFormNewCar from "./CarsFormNewCar";
+import CarsFormCurrentPageControl from "../CarsFormCurrentPageControl";
+import CarsFormCarItem from "../CarsFormCarItem";
+import CarsFormTitles from "../CarsFormTitles";
+import CarsFormNewCar from "../CarsFormNewCar";
+import "./carsFormContentList.css";
 
 const CarsFormContentList = ({
     originalData,

@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Dropdown, Spinner } from "react-bootstrap";
-const CarsFormEditCar = lazy(() => import("./CarsFormEditCar"));
-const CarsFormDeleteCar = lazy(() => import("./CarsFormDeleteCar"));
+import "./carsFormActionsDropdown.css";
+
+const CarsFormEditCar = lazy(() => import("../CarsFormEditCar/CarsFormEditCar"));
+const CarsFormDeleteCar = lazy(() => import("../CarsFormDeleteCar/CarsFormDeleteCar"));
 
 const CarsFormActionsDropdown = ({
     originalData,

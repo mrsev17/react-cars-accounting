@@ -1,3 +1,5 @@
+import "./animationLoadData.css";
+
 const AnimationLoadData = () => {
     return (
         <div>

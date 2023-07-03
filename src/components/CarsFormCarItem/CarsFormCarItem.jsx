@@ -1,4 +1,5 @@
-import CarsFormActionsDropdown from "./CarsFormActionsDropdown";
+import CarsFormActionsDropdown from "../CarsFormActionsDropdown";
+import "./carsFormCarItem.css";
 
 const CarsFormCarItem = ({
     slicedData,

@@ -12,10 +12,8 @@ function App() {
         if (dataLocalStorage) {
             setOriginalData(JSON.parse(dataLocalStorage));
             setLoadingOriginalData(false);
-            console.log("Loaded");
         } else {
             fetchData();
-            console.log("Need Load");
         }
     }, []);
 
