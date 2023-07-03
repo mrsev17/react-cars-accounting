@@ -1,0 +1,42 @@
+.modal-footer,
+.modal-header {
+    border: none;
+}
+.spinner-lazy-load {
+    width: 500px;
+    height: 308px;
+}
+.cars-form__edit-car-input {
+    width: 100%;
+}
+.cars-form__edit-car-right-side-inputs > .cars-form__edit-car-input > select {
+    width: 100%;
+    padding: 2px 0 2px 0;
+    height: 28px;
+}
+.cars-form__edit-car-right-side-inputs > .cars-form__edit-car-input > select,
+.cars-form__edit-car-right-side-inputs > .cars-form__edit-car-input > input,
+.cars-form__edit-car-left-side-inputs > .cars-form__edit-car-input > input {
+    border-radius: 4px;
+    background-color: #d9dfe1;
+    padding: 2px 0 2px 10px;
+    outline: none;
+}
+.cars-form__edit-car-right-side-inputs > .cars-form__edit-car-input > select {
+    width: 100%;
+    padding: 2px 0 2px 6px;
+    height: 28px;
+}
+
+.cars-form__edit-car-right-side-inputs
+    > .cars-form__edit-car-input
+    > input::placeholder,
+.cars-form__edit-car-left-side-inputs
+    > .cars-form__edit-car-input
+    > input::placeholder {
+    box-shadow: none;
+    transition: 0.5s ease-in-out;
+}
+.disabled-input {
+    color: grey;
+}

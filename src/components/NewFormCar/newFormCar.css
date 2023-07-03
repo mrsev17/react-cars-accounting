@@ -1,0 +1,46 @@
+.modal-footer,
+.modal-header {
+    border: none;
+}
+.spinner-lazy-load {
+    width: 500px;
+    height: 308px;
+}
+.cars-form__new-car-input {
+    width: 100%;
+}
+.cars-form__new-car-right-side-inputs > .cars-form__new-car-input > select {
+    width: 100%;
+    padding: 2px 0 2px 0;
+    height: 28px;
+}
+.cars-form__new-car-right-side-inputs > .cars-form__new-car-input > select,
+.cars-form__new-car-right-side-inputs > .cars-form__new-car-input > input,
+.cars-form__new-car-left-side-inputs > .cars-form__new-car-input > input {
+    border-radius: 4px;
+    background-color: #d9dfe1;
+    padding: 2px 0 2px 10px;
+    outline: none;
+}
+.cars-form__new-car-right-side-inputs > .cars-form__new-car-input > select {
+    width: 100%;
+    padding: 2px 0 2px 6px;
+    height: 28px;
+}
+
+.cars-form__new-car-right-side-inputs
+    > .cars-form__new-car-input
+    > input::placeholder,
+.cars-form__new-car-left-side-inputs
+    > .cars-form__new-car-input
+    > input::placeholder {
+    box-shadow: none;
+    transition: 0.5s ease-in-out;
+}
+
+@media (max-width: 576px) {
+    .cars-form__panel-add-car > button,
+    .cars-form__panel-add-car {
+        width: 100%;
+    }
+}

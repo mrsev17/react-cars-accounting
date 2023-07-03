@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import AnimationLoadData from "./components/AnimationLoadData";
-import CarsFormContentList from "./components/CarsFormContentList";
+import { Loader } from "./components/Loader";
+import { ContentList } from "./components/ContentList";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -39,12 +39,12 @@ function App() {
         <div className="App">
             <h1>Cars Accounting</h1>
             {loadingOriginalData ? (
-                <AnimationLoadData />
+                <Loader />
             ) : (
                 <>
                     <div className="cars-form__main-wrapper">
                         <div className="cars-form__main-list">
-                            <CarsFormContentList
+                            <ContentList
                                 originalData={originalData}
                                 setOriginalData={setOriginalData}
                                 updateDataLS={updateDataLS}
