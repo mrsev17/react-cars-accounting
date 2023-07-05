@@ -27,17 +27,16 @@ export const NewFormCar = ({ originalData, updateDataLS }) => {
     const handleShowNewCar = () => setShowNewCar(true);
 
     const newCarEvent = () => {
-        handleCloseNewCar();
-        addNewCar();
+        if (checkLengthInputs) {
+            handleCloseNewCar();
+            addNewCar();
+        } else {
+            showWarningCreateCar();
+        }
     };
 
     const checkLengthInputs =
-        newCompany.length > 0 &&
-        newModel.length > 0 &&
-        newColor.length > 0 &&
-        newYear.length > 0 &&
-        newVIN.length > 0 &&
-        newPrice.length > 0;
+        newCompany && newModel && newColor && newYear && newVIN && newPrice > 0;
 
     const cleanInputsNewCar = () => {
         setNewCompany("");
@@ -48,6 +47,13 @@ export const NewFormCar = ({ originalData, updateDataLS }) => {
         setNewPrice("");
     };
 
+    const showWarningCreateCar = () => {
+        toast.warning("All fields must be filled", {
+            transition: Flip,
+            position: "top-right",
+        });
+    };
+
     const showSuccesCreateCar = () => {
         toast.success("Added a new car", {
             transition: Flip,
@@ -56,22 +62,20 @@ export const NewFormCar = ({ originalData, updateDataLS }) => {
     };
 
     const addNewCar = () => {
-        if (checkLengthInputs) {
-            const newCarObject = {
-                id: uuidv4(),
-                car: newCompany,
-                car_model: newModel,
-                car_color: newColor,
-                car_model_year: +newYear,
-                car_vin: newVIN,
-                availability: newAvailability ? true : false,
-                price: `$${Math.round(newPrice * 100) / 100}`,
-            };
-            const addNewCarInData = [newCarObject, ...originalData.cars];
-            updateDataLS({ cars: addNewCarInData });
-            cleanInputsNewCar();
-            showSuccesCreateCar();
-        }
+        const newCarObject = {
+            id: uuidv4(),
+            car: newCompany,
+            car_model: newModel,
+            car_color: newColor,
+            car_model_year: +newYear,
+            car_vin: newVIN,
+            availability: newAvailability ? true : false,
+            price: `$${Math.round(newPrice * 100) / 100}`,
+        };
+        const addNewCarInData = [newCarObject, ...originalData.cars];
+        updateDataLS({ cars: addNewCarInData });
+        cleanInputsNewCar();
+        showSuccesCreateCar();
     };
 
     return (
@@ -79,7 +83,7 @@ export const NewFormCar = ({ originalData, updateDataLS }) => {
             <Button variant="primary" onClick={handleShowNewCar}>
                 Add Car +
             </Button>
-            <Modal show={showNewCar} onHide={handleCloseNewCar}>
+            <Modal centered show={showNewCar} onHide={handleCloseNewCar}>
                 <Modal.Header closeButton>
                     <Modal.Title>New Car</Modal.Title>
                 </Modal.Header>

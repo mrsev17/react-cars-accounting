@@ -3,6 +3,7 @@
 *,
 *::before,
 *::after {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -83,6 +84,8 @@ table {
 
 input[type="checkbox"],
 input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 }
 
@@ -93,13 +96,30 @@ input[type="radio"] {
 body {
     font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
         "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(#00b4db),
+        to(#0083b0)
+    );
+    background-image: -o-linear-gradient(left, #00b4db, #0083b0);
     background-image: linear-gradient(to right, #00b4db, #0083b0);
 }
 h1 {
     margin: 30px 0 30px 0;
     color: aliceblue;
     opacity: 0;
+    -webkit-animation: fadeInMainTitle 2s ease-in-out forwards;
     animation: fadeInMainTitle 2s ease-in-out forwards;
+}
+@-webkit-keyframes fadeInMainTitle {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 @keyframes fadeInMainTitle {
     0% {
@@ -114,17 +134,34 @@ h1 {
     text-align: center;
 }
 
-@keyframes fadeInMainWrapper {
+@-webkit-keyframes fadeInMainWrapper {
     0% {
         opacity: 0;
+        -webkit-transform: translateY(100%);
         transform: translateY(100%);
     }
     100% {
         opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInMainWrapper {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 }
 .cars-form__main-wrapper {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
     transform: translateY(100%);
     max-width: 1440px;
     width: 96%;
@@ -133,12 +170,21 @@ h1 {
     margin: 10px auto;
     padding: 0 30px 30px;
     border-radius: 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     opacity: 0;
+    -webkit-animation: fadeInMainWrapper 1s ease-in-out forwards;
     animation: fadeInMainWrapper 1s ease-in-out forwards;
+}
+.Toastify__toast {
+    border-radius: 8px;
 }
 .Toastify__close-button {
     display: none;
+}
+.page-link:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 @media (max-width: 1200px) {
     h4 {
@@ -163,8 +209,15 @@ h1 {
         padding: 0 5px 5px;
     }
     .cars-form__main-list {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 }

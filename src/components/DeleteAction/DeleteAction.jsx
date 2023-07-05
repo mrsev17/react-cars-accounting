@@ -23,9 +23,11 @@ export const DeleteAction = ({
         });
     };
     const removeCar = (id) => {
-        const newDataRemove = originalData.cars.filter(
-            (item) => item.id !== id
-        );
+        const carIndex = originalData.cars.findIndex((item) => item.id === id);
+        const newDataRemove = [
+            ...originalData.cars.slice(0, carIndex),
+            ...originalData.cars.slice(carIndex + 1),
+        ];
         updateDataLS({ cars: newDataRemove });
         showSuccesDeleteCarMessage();
     };
@@ -34,7 +36,7 @@ export const DeleteAction = ({
         if (slicedData.length === 1) setCurrentPage(totalPages - 1);
     };
 
-    const deleteCarEvent = (car) => {
+    const deleteCarEvent = () => {
         handleCloseDelete();
         removeCar(car.id);
         checkEmptyPage();
@@ -50,7 +52,7 @@ export const DeleteAction = ({
                 Delete Car
             </Button>
 
-            <Modal show={showDelete} onHide={handleCloseDelete}>
+            <Modal centered show={showDelete} onHide={handleCloseDelete}>
                 <Modal.Header closeButton>
                     <Modal.Title>Are you sure?</Modal.Title>
                 </Modal.Header>
@@ -62,7 +64,7 @@ export const DeleteAction = ({
                     <Button
                         className="cars-form__actions-delete-car"
                         variant="primary"
-                        onClick={() => deleteCarEvent(car)}
+                        onClick={deleteCarEvent}
                     >
                         Delete
                     </Button>

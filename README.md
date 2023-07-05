@@ -1,5 +1,5 @@
-npm i
+Download dependencies - npm i
 
-npm start
+Start local server with project - npm start
 
 Live Version: https://prismatic-dieffenbachia-fab7a7.netlify.app

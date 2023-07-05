@@ -84,7 +84,7 @@ export const EditForm = ({ originalData, car, updateDataLS }) => {
             <Button variant="primary" onClick={handleShowEdit}>
                 Edit Car
             </Button>
-            <Modal show={showEditInput} onHide={handleCloseEdit}>
+            <Modal centered show={showEditInput} onHide={handleCloseEdit}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Car</Modal.Title>
                 </Modal.Header>

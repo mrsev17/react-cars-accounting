@@ -1,12 +1,17 @@
 .cars-form__actions-delete-car {
     background-color: rgb(191, 12, 12);
     border: 1px solid rgb(191, 12, 12);
+    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
 }
 .cars-form__actions-delete-car:hover {
     background-color: rgb(232, 23, 23);
     border: 1px solid rgb(232, 23, 23);
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 .modal-footer,

@@ -1,6 +1,8 @@
 .cars-form__wrapper-panel-search-add-car {
     padding-top: 20px;
     gap: 10px;
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
     order: 3;
 }
 .cars-form__panel-search-input > input {
@@ -10,6 +12,18 @@
     outline: none;
     height: 38px;
     width: 280px;
+}
+.cars-form__panel-search-input > input::-webkit-input-placeholder {
+    color: rgb(112, 111, 111);
+}
+.cars-form__panel-search-input > input::-moz-placeholder {
+    color: rgb(112, 111, 111);
+}
+.cars-form__panel-search-input > input:-ms-input-placeholder {
+    color: rgb(112, 111, 111);
+}
+.cars-form__panel-search-input > input::-ms-input-placeholder {
+    color: rgb(112, 111, 111);
 }
 .cars-form__panel-search-input > input::placeholder {
     color: rgb(112, 111, 111);
@@ -28,6 +42,9 @@
 
 @media (max-width: 576px) {
     .cars-form__wrapper-panel-search-add-car {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         padding-top: 10px;
     }

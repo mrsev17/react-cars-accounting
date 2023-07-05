@@ -9,6 +9,8 @@
     border-radius: 4px;
     width: 110px;
     height: 24px;
+    -webkit-transition: ease-in-out 0.5s;
+    -o-transition: ease-in-out 0.5s;
     transition: ease-in-out 0.5s;
     font-size: 14px;
 }
@@ -16,6 +18,8 @@
     border: 1px solid rgb(25, 128, 191);
     background-color: rgb(25, 128, 191);
     color: white;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 .page-link {
